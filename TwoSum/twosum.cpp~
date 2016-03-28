@@ -1,0 +1,32 @@
+/*************************************************************************
+	> File Name: twosum.cpp
+	> Author: 
+	> Mail: 
+	> Created Time: 2016年03月28日 星期一 18时31分06秒
+ ************************************************************************/
+
+#include<iostream>
+#include<vector>
+using namespace std;
+int main()
+{
+    int i,j;
+    int num[]={1,2,3,4,5,6};
+    vector<int> res;
+    for(i=0;i<5;i++)
+    {
+        for (j=i+1;j<6;j++)
+        {
+            if(num[i]+num[j]==9)
+            {
+                res.push_back(i+1);
+                res.push_back(j+1);
+                cout<<i+1<<" "<<j+1<<endl;
+                return 0;
+            }
+        }
+    }
+    
+
+
+}
