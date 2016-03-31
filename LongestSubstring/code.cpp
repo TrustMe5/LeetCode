@@ -1,0 +1,46 @@
+/*************************************************************************
+	> File Name: code.cpp
+	> Author: 
+	> Mail: 
+	> Created Time: 2016年03月31日 星期四 19时00分34秒
+ ************************************************************************/
+
+#include<iostream>
+using namespace std;
+int main()
+{
+    int i,j,k,l;
+    string s;
+    string s1;
+    cin>>s;
+    int num=1;
+    for(i=0;i<s.length()-1;i++)
+    {
+        for(j=i+1;j<s.length();j++)
+        {
+            s1=s.substr(i,j);
+            int flag=0;
+            for(k=0;k<s1.length()-1;k++)
+            {
+                for(l=k+1;l<s1.length();l++)
+                {
+                    if(s1[k]==s1[l])
+                    {
+                       flag=1;
+                        break;
+                    }
+                    if(l-k>num-1)
+                    {
+                        num=l-k+1;
+                    }
+                }
+                if(flag==1)
+                {
+                    break;
+                }
+            }	
+        }
+    }
+    cout<<num;
+    return 0;
+}
