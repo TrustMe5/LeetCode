@@ -1,24 +1,37 @@
 #!/usr/bin/env python
 # coding=utf-8
 def processnum(self,str):
-    num='0123456789'
-    length=len(str)
-    if length==0:
+    max=0x80000000
+    min=0x7fffffff
+    if str='':
         return 0
-    if str[0] not in num and str[0]!='-' and str[0]!='+':
-        return 0
-    if str[0]=='-' or str[0]=='+':
-        i=1
-        while i<length and str[i] in num:
-            i++
-        if i==1:
-            return 0
+    i=0
+    sum=0
+    sysbol=1
+    while i<len(str) and str[i].isspace():
+        i+=1
+    if i<len(str) and str[i]=='-':
+        sysbol=-1
+    if i<len(str) and (str[i]=='+' or str[i]=='-'):
+        i+=1
+    while i<len(str) and str[i].isdigit():
+        digit=int(str[i])
+        if max/10>=sum:
+            sum*=10
         else:
-            integer=int(str[:i])
-             if integer<-0x80000000
-                   return -0x80000000                              
-             elif integer>0x7fffffff:
-                   return 0x7fffffff
-             else:
-                   return integer
+            if sign==1:
+                return max
+            else:
+                return min
+        if max-digit>=sum:
+            sum+=digit
+        else:
+            if sign==1:
+                return max
+            else:
+                return min
+        i+=1
+    return sign*sum
+    
+
 
