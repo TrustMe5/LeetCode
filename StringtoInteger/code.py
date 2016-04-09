@@ -1,37 +1,38 @@
-#!/usr/bin/env python
-# coding=utf-8
-def processnum(self,str):
-    max=0x7fffffff
-    min=0x80000000
-    if str='':
-        return 0
-    i=0
-    sum=0
-    sysbol=1
-    while i<len(str) and str[i].isspace():
-        i+=1
-    if i<len(str) and str[i]=='-':
-        sysbol=-1
-    if i<len(str) and (str[i]=='+' or str[i]=='-'):
-        i+=1
-    while i<len(str) and str[i].isdigit():
-        digit=int(str[i])
-        if max/10>=sum:
-            sum*=10
-        else:
-            if sign==1:
+class Solution(object):
+    def myAtoi(self, str):
+        """
+        :type str: str
+        :rtype: int
+        """
+        max=2147483647
+        min=-2147483648
+        symbol=1
+        i=0
+        sum=0
+        if str=='':
+            return 0
+        while i<len(str) and str[i].isspace():
+            i+=1
+        if i<len(str) and str[i]=='-':
+            symbol=-1
+        if i<len(str) and (str[i]=='-' or str[i]=='+'):
+            i+=1
+        j=i
+        while i<len(str) and str[i].isdigit():
+            i+=1
+        if i==j:
+            return 0
+        digit=int(str[j:i])
+        if digit>max:
+            if symbol==1:
                 return max
             else:
                 return min
-        if max-digit>=sum:
-            sum+=digit
         else:
-            if sign==1:
-                return max
+            if symbol==1:
+                return digit
             else:
-                return min
-        i+=1
-    return sign*sum
-    
+                return symbol*digit
+
 
 
