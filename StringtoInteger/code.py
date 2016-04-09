@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # coding=utf-8
 def processnum(self,str):
-    max=0x80000000
-    min=0x7fffffff
+    max=0x7fffffff
+    min=0x80000000
     if str='':
         return 0
     i=0
