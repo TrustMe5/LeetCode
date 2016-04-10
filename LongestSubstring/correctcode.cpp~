@@ -1,0 +1,41 @@
+/*************************************************************************
+	> File Name: correctcode.cpp
+	> Author: 
+	> Mail: 
+	> Created Time: 2016年03月31日 星期四 19时43分50秒
+ ************************************************************************/
+
+#include<iostream>
+using namespace std;
+int main()
+{
+    int num=0,s=0,i,j;
+    string str;
+    cin>>str;
+    int exist[26];
+    int pos[26];
+    for(i=0;i<str.length();i++)
+    {
+        if(exist[str[i]-'a'])
+        {
+            for(j=s;j<pos[str[i]-'a'];j++)
+            {
+                exist[str[j]-'a']=0;
+            }
+            s=pos[str[i]-'a']+1;
+            exist[str[i]-'a']=1;
+            pos[str[i]-'a']=i;
+        }
+        else
+        {
+            exist[str[i]-'a']=1;
+            pos[str[i]-'a']=i;
+            if(num<i-s+1)
+            {
+                num=i-s+1;
+            }
+        }
+    }
+    cout<<num<<endl;
+    return 0;
+}
